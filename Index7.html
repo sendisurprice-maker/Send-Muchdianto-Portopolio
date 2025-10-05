@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Profesional Sendi Muchdianto</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: move 20s linear infinite;
+        }
+
+        @keyframes move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px 50px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 4em;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, #667eea 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.5em;
+            color: #ddd;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-text .description {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #bbb;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #bbb;
+            margin-top: 5px;
+        }
+
+        /* Photo Upload Section */
+        .hero-photo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInRight 1s ease;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .photo-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+        }
+
+        .photo-frame {
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            padding: 5px;
+            position: relative;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .photo-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 25px;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #profileImage {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .upload-placeholder {
+            text-align: center;
+            color: #888;
+        }
+
+        .upload-placeholder .icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .upload-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .upload-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        /* Contact Buttons */
+        .contact-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3em;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #fff 0%, #667eea 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+
+        .skill-card:hover::before {
+            opacity: 1;
+        }
+
+        .skill-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .skill-card p {
+            color: #bbb;
+            line-height: 1.8;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(180deg, #667eea, #764ba2, #f093fb);
+        }
+
+        .timeline-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -56px;
+            top: 50px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 4px solid #0a0a0a;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.3);
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .job-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .company-name {
+            font-size: 1.2em;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .duration {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .job-description {
+            color: #bbb;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .achievements {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .achievements h4 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .achievements ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievements li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #bbb;
+            line-height: 1.8;
+        }
+
+        .achievements li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+
+        .achievements li strong {
+            color: #fff;
+        }
+
+        /* Ideas Cards */
+        .ideas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .idea-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .idea-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(102, 126, 234, 0.5);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .idea-card h3 {
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .idea-card p {
+            color: #bbb;
+            line-height: 1.8;
+        }
+
+        /* Achievement Highlights */
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .achievement-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .achievement-box:hover {
+            transform: scale(1.05);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+
+        .achievement-box h4 {
+            font-size: 1.3em;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .achievement-box p {
+            color: #bbb;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
+        /* Target List */
+        .target-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .target-list li {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            padding-left: 70px;
+            transition: all 0.3s;
+        }
+
+        .target-list li:hover {
+            transform: translateX(10px);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+
+        .target-list li::before {
+            content: "🎯";
+            position: absolute;
+            left: 25px;
+            font-size: 2em;
+        }
+
+        .target-list li strong {
+            color: #fff;
+            font-size: 1.2em;
+        }
+
+        .target-list li {
+            color: #bbb;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, #667eea 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        footer p {
+            color: #bbb;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .footer-contact a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-contact a:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            margin-top: 40px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 3em;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .photo-container {
+                width: 300px;
+                height: 300px;
+            }
+
+            .timeline {
+                padding-left: 30px;
+            }
+
+            .timeline-item::before {
+                left: -36px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2.5em;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#keahlian">Keahlian</a></li>
+            <li><a href="#pengalaman">Pengalaman</a></li>
+            <li><a href="#solusi">Solusi</a></li>
+            <li><a href="#gagasan">Gagasan</a></li>
+            <li><a href="#pencapaian">Pencapaian</a></li>
+            <li><a href="#target">Target</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Sendi Muchdianto</h1>
+                <div class="subtitle">Operations Manager • E-Commerce & Logistics Expert</div>
+                <p class="description">
+                    Profesional berpengalaman 15+ tahun dalam operasional, logistik, warehouse management, dan e-commerce marketplace. 
+                    Terbukti berhasil memimpin tim lintas fungsi dan mengoptimalkan efisiensi operasional hingga 40%.
+                </p>
+
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Tahun Pengalaman</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">250%</div>
+                        <div class="stat-label">Revenue Growth</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">80K+</div>
+                        <div class="stat-label">SKU Managed</div>
+                    </div>
+                </div>
+
+                <div class="contact-buttons">
+                    <a href="mailto:Sendisurprice@gmail.com" class="btn btn-primary">
+                        📧 Email Saya
+                    </a>
+                    <a href="tel:+6288101109718" class="btn btn-secondary">
+                        📱 0881-0110-99718
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-photo">
+                <div class="photo-container">
+                    <div class="photo-frame">
+                        <div class="photo-inner">
+                            <img id="profileImage" alt="Sendi Muchdianto">
+                            <div class="upload-placeholder" id="placeholder">
+                                <div class="icon">👤</div>
+                                <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+                                    📷 Upload Foto
+                                </button>
+                                <input type="file" id="fileInput" accept="image/*">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="keahlian">
+        <h2 class="section-title">Kecerdasan & Keahlian</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">📦</div>
+                <h3>Warehouse Management</h3>
+                <p>Expert dalam mengelola warehouse operations hingga 80.000+ SKU dengan stock accuracy 99.2%, zone picking implementation, dan inventory optimization.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🛒</div>
+                <h3>E-Commerce Excellence</h3>
+                <p>Menguasai multi-marketplace operations (Lazada, Shopee, TikTok) dengan omnichannel integration, live commerce strategy, dan campaign management.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🚚</div>
+                <h3>Logistics & Distribution</h3>
+                <p>Optimalisasi last mile delivery dengan route planning, cost efficiency 25%, on-time delivery 96%, dan same-day delivery capability.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">👥</div>
+                <h3>Team Leadership</h3>
+                <p>Memimpin cross-functional team 20+ personel mencakup warehouse, finance, CS, marketing, dan delivery operations dengan KPI-driven approach.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">📊</div>
+                <h3>Data-Driven Decisions</h3>
+                <p>Expertise dalam dashboard development, data analysis, inventory forecasting, dan performance monitoring untuk strategic decision making.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">⚡</div>
+                <h3>Process Optimization</h3>
+                <p>Track record meningkatkan operational efficiency 40%, cost reduction 25%, dan automation implementation untuk scalable operations.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="pengalaman">
+        <h2 class="section-title">Pengalaman Profesional</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="company-header">
+                    <div>
+                        <div class="job-title">Kepala Operasional</div>
+                        <div class="company-name">PT Chandra Anugrah Gemilang</div>
+                    </div>
+                    <div class="duration">2024 - Sekarang</div>
+                </div>
+                <p class="job-description">
+                    Memimpin full operations perusahaan e-commerce home living dengan 3 marketplace channels (Lazada, Shopee, TikTok), 
+                    membawahi 6 divisi dengan team 20+ personel.
+                </p>
+                <div class="achievements">
+                    <h4>🎯 Pencapaian Utama:</h4>
+                    <ul>
+                        <li>Optimalisasi rute dan scheduling, efisiensi delivery +30%</li>
+                        <li>Maintain SLA >95% secara konsisten year-over-year</li>
+                        <li>Reduksi misroute 40%, damage rate <0.1%</li>
+                        <li>Team training program meningkatkan produktivitas kurir</li>
+                        <li>Complaint resolution <24 jam</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="company-header">
+                    <div>
+                        <div class="job-title">Data & Operations Support</div>
+                        <div class="company-name">PT Pos Indonesia, Tbk</div>
+                    </div>
+                    <div class="duration">2010 - 2015</div>
+                </div>
+                <p class="job-description">
+                    Memberikan support data dan operasional untuk memastikan akurasi informasi dan mengembangkan dashboard monitoring.
+                </p>
+                <div class="achievements">
+                    <h4>🎯 Pencapaian Utama:</h4>
+                    <ul>
+                        <li>Data accuracy improvement hingga 98%</li>
+                        <li>Dashboard development (Excel & Access) untuk operations monitoring</li>
+                        <li>System error resolution <1 jam response time</li>
+                        <li>Staff training program untuk sistem internal</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="solusi">
+        <h2 class="section-title">Solusi & Inisiatif</h2>
+        <div class="ideas-grid">
+            <div class="idea-card">
+                <h3>Omnichannel Integration</h3>
+                <p>Mengintegrasikan 3 marketplace (Lazada, Shopee, TikTok) ke single dashboard dengan real-time inventory sync, mengurangi error 35% dan lead time 20%.</p>
+            </div>
+            <div class="idea-card">
+                <h3>Warehouse Transformation</h3>
+                <p>Redesign warehouse layout untuk 5.000+ SKU dengan zone picking system yang meningkatkan productivity 40% dan stock accuracy 99.2%.</p>
+            </div>
+            <div class="idea-card">
+                <h3>TikTok Live Commerce</h3>
+                <p>Membangun strategi live commerce yang menghasilkan revenue growth 250% dalam 8 bulan dengan conversion rate 18% saat flash sale.</p>
+            </div>
+            <div class="idea-card">
+                <h3>Customer Experience Excellence</h3>
+                <p>Meningkatkan store rating dari 4.2 ke 4.8, menurunkan cancellation rate dari 8% ke 2.5%, dan meningkatkan repeat customer 35%.</p>
+            </div>
+            <div class="idea-card">
+                <h3>Delivery Route Optimization</h3>
+                <p>Implementasi route planning yang menghemat delivery cost 25%, mencapai on-time delivery 96%, dan enable same-day delivery Jabodetabek.</p>
+            </div>
+            <div class="idea-card">
+                <h3>Financial Automation</h3>
+                <p>Digitalisasi invoicing dan settlement yang mempercepat proses dari 7 hari ke 3 hari, mengurangi accounting error 45%.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="gagasan">
+        <h2 class="section-title">Gagasan & Ide Inovatif</h2>
+        <div class="ideas-grid">
+            <div class="idea-card">
+                <h3>AI-Powered Demand Forecasting</h3>
+                <p>Konsep implementasi machine learning untuk prediksi demand berdasarkan historical data, trend pasar, dan seasonal patterns untuk optimalisasi inventory dan mengurangi overstock hingga 40%.</p>
+            </div>
+            <div class="idea-card">
+                <h3>Automated Warehouse Robotics</h3>
+                <p>Visi mengintegrasikan warehouse automation dengan AGV (Automated Guided Vehicles) untuk picking process yang dapat meningkatkan throughput 300% dan akurasi 99.9%.</p>
+            </div>
+            <div class="idea-card">
+                <h3>Social Commerce Ecosystem</h3>
+                <p>Framework terintegrasi untuk mengelola multiple social commerce channels (TikTok, Instagram, Facebook) dengan unified dashboard, creator management, dan performance analytics.</p>
+            </div>
+            <div class="idea-card">
+                <h3>Green Logistics Initiative</h3>
+                <p>Program sustainability dengan electric vehicle fleet, eco-friendly packaging, dan carbon offset program untuk mengurangi environmental impact 50% dalam 3 tahun.</p>
+            </div>
+            <div class="idea-card">
+                <h3>Customer Data Platform</h3>
+                <p>Sistem CDP yang mengintegrasikan data dari multiple touchpoints untuk personalized marketing, customer journey optimization, dan predictive customer lifetime value analysis.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="pencapaian">
+        <h2 class="section-title">Pencapaian Highlight</h2>
+        <div class="achievement-grid">
+            <div class="achievement-box">
+                <h4>🏆 TikTok Revenue Growth 250%</h4>
+                <p>Membangun strategi live commerce dari nol dengan average 2.000+ viewers per session dan conversion rate 18%.</p>
+            </div>
+            <div class="achievement-box">
+                <h4>🏆 Store Rating 4.8/5.0</h4>
+                <p>Meningkatkan customer satisfaction dari 4.2 ke 4.8 dalam 6 bulan dengan response time <4 jam.</p>
+            </div>
+            <div class="achievement-box">
+                <h4>🏆 Operational Efficiency +40%</h4>
+                <p>Redesign warehouse operations dengan zone picking implementation dan process automation.</p>
+            </div>
+            <div class="achievement-box">
+                <h4>🏆 Inventory Accuracy 99.2%</h4>
+                <p>Mencapai stock accuracy 99.2% untuk 5.000+ SKU dengan omnichannel real-time sync.</p>
+            </div>
+            <div class="achievement-box">
+                <h4>🏆 Cost Optimization 25%</h4>
+                <p>Delivery route optimization menghasilkan penghematan operational cost 25% dengan maintain service quality 96%.</p>
+            </div>
+            <div class="achievement-box">
+                <h4>🏆 Peak Season Excellence</h4>
+                <p>Successfully handled 500+ orders/day during mega campaigns tanpa delay atau compromise pada quality.</p>
+            </div>
+            <div class="achievement-box">
+                <h4>🏆 80.000 SKU Management</h4>
+                <p>Expertise dalam mengelola distribusi high-volume SKU dengan inventory turnover optimization 15%.</p>
+            </div>
+            <div class="achievement-box">
+                <h4>🏆 6-Year Logistics Excellence</h4>
+                <p>Maintain SLA >95% year-over-year, delivery efficiency +30%, misroute reduction 40%.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="target">
+        <h2 class="section-title">Target & Visi Kedepan</h2>
+        <ul class="target-list">
+            <li><strong>Ekspansi Multi-Channel E-Commerce</strong> - Mengembangkan presence di 5+ marketplace channels dan social commerce platforms dengan integrated omnichannel strategy dalam 2 tahun.</li>
+            <li><strong>Warehouse Automation Implementation</strong> - Mengimplementasikan warehouse automation dan robotics untuk meningkatkan capacity 3x lipat dan accuracy 99.9%.</li>
+            <li><strong>Regional Distribution Network</strong> - Membangun distribution hub di 3 kota strategis untuk faster delivery dan wider market coverage di Indonesia.</li>
+            <li><strong>Data Analytics Mastery</strong> - Mengembangkan advanced analytics capability dengan AI/ML untuk predictive demand forecasting dan dynamic pricing strategy.</li>
+            <li><strong>Team Development Excellence</strong> - Membangun high-performance team dengan structured training program dan career path development untuk 50+ personel.</li>
+            <li><strong>Sustainable Operations</strong> - Mengimplementasikan green logistics initiative dengan 50% carbon reduction dan eco-friendly packaging dalam 3 tahun.</li>
+            <li><strong>Industry Thought Leadership</strong> - Berbagi knowledge melalui speaking engagements, artikel, dan mentoring untuk 100+ professionals di bidang operations & logistics.</li>
+        </ul>
+    </section>
+
+    <section class="section" id="pendidikan">
+        <h2 class="section-title">Pendidikan & Pengembangan Diri</h2>
+        <div class="ideas-grid">
+            <div class="idea-card">
+                <h3>🎓 S1 Ekonomi Syari'ah</h3>
+                <p><strong>STAIN Pekalongan</strong> | 2006 - 2010<br><br>Fokus pada ekonomi Islam, manajemen keuangan syariah, dan prinsip-prinsip bisnis yang etis dan berkelanjutan.</p>
+            </div>
+            <div class="idea-card">
+                <h3>📚 Continuous Learning</h3>
+                <p>Aktif mengikuti perkembangan industri e-commerce, logistics technology, dan operations management melalui webinar, workshop, dan self-learning.</p>
+            </div>
+            <div class="idea-card">
+                <h3>📖 Hobi: Membaca</h3>
+                <p>Passionate reader dengan fokus pada business strategy, operations excellence, technology innovation, dan leadership development. Percaya bahwa continuous learning melalui membaca adalah kunci untuk tetap relevan dan inovatif di era digital.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="kontak">
+        <h2>Mari Berkolaborasi</h2>
+        <p>Saya terbuka untuk diskusi mengenai peluang kolaborasi, proyek inovatif, atau sekadar berbagi ide dan insight tentang operations, e-commerce, dan logistics.</p>
+        <div class="footer-contact">
+            <a href="mailto:Sendisurprice@gmail.com">📧 Sendisurprice@gmail.com</a>
+            <a href="tel:+6288101109718">📱 0881-0110-99718</a>
+            <a href="https://linkedin.com/in/sendimuchdianto">💼 LinkedIn</a>
+            <a href="https://wa.me/6288101109718">💬 WhatsApp</a>
+        </div>
+        <p class="copyright">&copy; 2025 Sendi Muchdianto. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Photo Upload Functionality
+        const fileInput = document.getElementById('fileInput');
+        const profileImage = document.getElementById('profileImage');
+        const placeholder = document.getElementById('placeholder');
+
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    profileImage.src = e.target.result;
+                    profileImage.style.display = 'block';
+                    placeholder.style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.skill-card, .timeline-item, .idea-card, .achievement-box').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>><strong>Omnichannel Integration:</strong> Integrasi 3 marketplace ke single dashboard, reduksi error 35% dan lead time 20%</li>
+                        <li><strong>Warehouse Excellence:</strong> Redesign layout untuk 5.000+ SKU, productivity +40%, stock accuracy 99.2%</li>
+                        <li><strong>Customer Experience:</strong> Store rating 4.2 → 4.8, cancellation rate 8% → 2.5%, repeat customer +35%</li>
+                        <li><strong>TikTok Live Commerce:</strong> Revenue growth 250% dalam 8 bulan, conversion rate 18%</li>
+                        <li><strong>Last Mile Delivery:</strong> Route optimization hemat cost 25%, on-time delivery 96%</li>
+                        <li><strong>Campaign Management:</strong> Process 500+ orders/day saat peak season tanpa delay</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="company-header">
+                    <div>
+                        <div class="job-title">Operations Manager</div>
+                        <div class="company-name">PT Otobot Indonesia</div>
+                    </div>
+                    <div class="duration">2022 - 2024</div>
+                </div>
+                <p class="job-description">
+                    Mengelola distribusi 80.000 SKU, warehouse operations, dan service center untuk produk automotive accessories.
+                </p>
+                <div class="achievements">
+                    <h4>🎯 Pencapaian Utama:</h4>
+                    <ul>
+                        <li>Managed 80.000 SKU distribution dengan high accuracy rate</li>
+                        <li>Meningkatkan inbound-outbound efficiency 25%</li>
+                        <li>Inventory turnover optimization 15% lebih efisien</li>
+                        <li>WMS implementation untuk real-time tracking</li>
+                        <li>Operational cost reduction 18%</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="company-header">
+                    <div>
+                        <div class="job-title">Operations Supervisor</div>
+                        <div class="company-name">PT Satria Antaran Prima, Tbk</div>
+                    </div>
+                    <div class="duration">2015 - 2021</div>
+                </div>
+                <p class="job-description">
+                    Mengawasi operasional kurir dan logistik dengan fokus pada route optimization dan SLA compliance.
+                </p>
+                <div class="achievements">
+                    <h4>🎯 Pencapaian Utama:</h4>
+                    <ul>
+                        <li
