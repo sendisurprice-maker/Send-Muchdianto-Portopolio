@@ -813,7 +813,7 @@ Personal portfolio website showcasing my experience, projects, and professional 
         <div class="skills-grid">
             <div class="skill-card">
                 <div class="skill-icon">📦</div>
-                <h3>Warehouse Management</h3>
+                <h3>Supply Chain & Inventory Management</h3>
                 <p>Expert dalam mengelola warehouse operations hingga 80.000+ SKU dengan stock accuracy 99.2%, zone picking implementation, dan inventory optimization.</p>
             </div>
             <div class="skill-card">
@@ -900,7 +900,7 @@ Personal portfolio website showcasing my experience, projects, and professional 
         <div class="ideas-grid">
             <div class="idea-card">
                 <h3>Omnichannel Integration</h3>
-                <p>Mengintegrasikan 3 marketplace (Lazada, Shopee, TikTok) ke single dashboard dengan real-time inventory sync, mengurangi error 35% dan lead time 20%.</p>
+                <p>Mengintegrasikan 5 marketplace (Lazada, Shopee, TikTok, Tokopedia,Blibli) ke single dashboard dengan real-time inventory sync, mengurangi error 35% dan lead time 20%.</p>
             </div>
             <div class="idea-card">
                 <h3>Warehouse Transformation</h3>
