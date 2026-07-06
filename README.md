@@ -787,9 +787,7 @@ Personal portfolio website showcasing my experience, projects, and professional 
     </div>
   </div>
 </div>
-    </section>
-
-    <section class="section" id="keahlian">
+     <section class="section" id="keahlian">
         <h2 class="section-title">Kecerdasan & Keahlian</h2>
         <div class="skills-grid">
             <div class="skill-card">
@@ -823,8 +821,6 @@ Personal portfolio website showcasing my experience, projects, and professional 
                 <p>Track record meningkatkan operational efficiency 40%, cost reduction 25%, dan automation implementation untuk scalable operations.</p>
             </div>
         </div>
-    </section>
-
     <section class="section" id="pengalaman">
         <h2 class="section-title">Pengalaman Profesional</h2>
         <div class="timeline">
@@ -874,9 +870,7 @@ Personal portfolio website showcasing my experience, projects, and professional 
                 </div>
             </div>
         </div>
-    </section>
-
-    <section class="section" id="solusi">
+     <section class="section" id="solusi">
         <h2 class="section-title">Solusi & Inisiatif</h2>
         <div class="ideas-grid">
             <div class="idea-card">
@@ -904,8 +898,6 @@ Personal portfolio website showcasing my experience, projects, and professional 
                 <p>Digitalisasi invoicing dan settlement yang mempercepat proses dari 7 hari ke 3 hari, mengurangi accounting error 45%.</p>
             </div>
         </div>
-    </section>
-
     <section class="section" id="gagasan">
         <h2 class="section-title">Gagasan & Ide Inovatif</h2>
         <div class="ideas-grid">
@@ -930,7 +922,6 @@ Personal portfolio website showcasing my experience, projects, and professional 
                 <p>Sistem CDP yang mengintegrasikan data dari multiple touchpoints untuk personalized marketing, customer journey optimization, dan predictive customer lifetime value analysis.</p>
             </div>
         </div>
-    </section>
 
     <section class="section" id="pencapaian">
         <h2 class="section-title">Pencapaian Highlight</h2>
@@ -968,8 +959,7 @@ Personal portfolio website showcasing my experience, projects, and professional 
                 <p>Maintain SLA >95% year-over-year, delivery efficiency +30%, misroute reduction 40%.</p>
             </div>
         </div>
-    </section>
-
+ 
     <section class="section" id="target">
         <h2 class="section-title">Target & Visi Kedepan</h2>
         <ul class="target-list">
