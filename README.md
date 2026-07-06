@@ -788,54 +788,21 @@ Personal portfolio website showcasing my experience, projects, and professional 
                 </div>
             </div>
 
-           <div class="hero-photo">
+          <div class="hero-photo">
   <div class="photo-container">
     <div class="photo-frame">
       <div class="photo-inner">
-        <!-- Tempat tampil foto -->
+        <!-- Foto langsung dari Google Drive -->
         <img 
           id="profileImage" 
-          alt="Sendi Muchdianto" 
-          style="width: 100%; height: 100%; object-fit: cover; display: none; border-radius: inherit;"
+          src="https://drive.google.com/uc?export=view&id=1aq59k4VUQhu8FQ5yXJeTqGKvec5_Rczw" 
+          alt="Sendi Muchdianto"
+          style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;"
         >
-
-        <!-- Tampilan saat belum ada foto -->
-        <div class="upload-placeholder" id="placeholder" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
-          <div class="icon">👤</div>
-          <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
-            📷 Upload Foto
-          </button>
-        </div>
-
-        <!-- Input file yang tersembunyi -->
-        <input type="file" id="fileInput" accept="image/*" style="display: none;">
       </div>
     </div>
   </div>
 </div>
-
-<!-- Kode agar foto bisa muncul setelah dipilih -->
-<script>
-const fileInput = document.getElementById('fileInput');
-const profileImage = document.getElementById('profileImage');
-const placeholder = document.getElementById('placeholder');
-
-// Jalankan saat pengguna memilih foto
-fileInput.addEventListener('change', function(e) {
-  const fileTerpilih = e.target.files[0];
-  if (fileTerpilih) {
-    // Buat tautan sementara dari foto yang dipilih
-    const pembaca = new FileReader();
-    pembaca.onload = function(hasil) {
-      // Tampilkan foto dan sembunyikan tampilan kosong
-      profileImage.src = hasil.target.result;
-      profileImage.style.display = 'block';
-      placeholder.style.display = 'none';
-    };
-    pembaca.readAsDataURL(fileTerpilih);
-  }
-});
-</script>
     </section>
 
     <section class="section" id="keahlian">
