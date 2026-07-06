@@ -794,12 +794,23 @@ Personal portfolio website showcasing my experience, projects, and professional 
     <div class="photo-frame">
       <div class="photo-inner">
         <!-- Ganti src dengan link langsung Google Drive -->
-        <img 
-          id="profileImage" 
-          src="https://drive.google.com/uc?export=view&id=1aq59k4VUQhu8FQ5yXJeTqGKvec5_Rczw" 
-          alt="Sendi Muchdianto"
-          style="width: 100%; height: 100%; object-fit: cover;"
-        >
+       <img 
+  id="profileImage" 
+  src="https://drive.google.com/uc?export=view&id=1aq59k4VUQhu8FQ5yXJeTqGKvec5_Rczw" 
+  alt="Sendi Muchdianto"
+  style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;"
+>
+<script>
+// Sembunyikan ikon kosong jika foto berhasil dimuat
+document.getElementById('profileImage').onload = function() {
+  document.getElementById('placeholder').style.display = 'none';
+};
+// Tampilkan ikon kosong jika tautan bermasalah
+document.getElementById('profileImage').onerror = function() {
+  this.style.display = 'none';
+  document.getElementById('placeholder').style.display = 'flex';
+};
+</script>        >
         <div class="upload-placeholder" id="placeholder">
           <div class="icon">👤</div>
           <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
