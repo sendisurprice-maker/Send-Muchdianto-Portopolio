@@ -790,22 +790,27 @@ Personal portfolio website showcasing my experience, projects, and professional 
             </div>
 
             <div class="hero-photo">
-                <div class="photo-container">
-                    <div class="photo-frame">
-                        <div class="photo-inner">
-                            <img id="profileImage" alt="Sendi Muchdianto">
-                            <div class="upload-placeholder" id="placeholder">
-                                <div class="icon">👤</div>
-                                <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
-                                    📷 Upload Foto
-                                </button>
-                                <input type="file" id="fileInput" accept="image/*">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="photo-container">
+    <div class="photo-frame">
+      <div class="photo-inner">
+        <!-- Ganti src dengan link langsung Google Drive -->
+        <img 
+          id="profileImage" 
+          src="https://drive.google.com/uc?export=view&id=1aq59k4VUQhu8FQ5yXJeTqGKvec5_Rczw" 
+          alt="Sendi Muchdianto"
+          style="width: 100%; height: 100%; object-fit: cover;"
+        >
+        <div class="upload-placeholder" id="placeholder">
+          <div class="icon">👤</div>
+          <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+            📷 Upload Foto
+          </button>
+          <input type="file" id="fileInput" accept="image/*" style="display: none;">
         </div>
+      </div>
+    </div>
+  </div>
+</div>
     </section>
 
     <section class="section" id="keahlian">
