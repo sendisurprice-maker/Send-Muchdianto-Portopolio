@@ -217,27 +217,7 @@ Personal portfolio website showcasing my experience, projects, and professional 
             height: 400px;
         }
 
-        .photo-frame {
-    width: 100%;
-    height: 100%;
-    border-radius: 30px;
-    background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
-    padding: 5px;
-    position: relative;
-    /* HAPUS baris animasi di bawah ini */
-    /* animation: rotate 20s linear infinite; */
-}
-
-/* Bisa juga hapus seluruh bagian @keyframes rotate jika tidak dipakai lagi */
-/*
-@keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-*/
-        }
-
-        .photo-inner {
+          .photo-inner {
             width: 100%;
             height: 100%;
             border-radius: 25px;
