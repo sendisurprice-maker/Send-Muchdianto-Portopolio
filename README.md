@@ -1,6 +1,5 @@
 # Send-Muchdianto-Portopolio
 Personal portfolio website showcasing my experience, projects, and professional background.
-<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -796,7 +795,7 @@ Personal portfolio website showcasing my experience, projects, and professional 
         <!-- Ganti src dengan link langsung Google Drive -->
        <img 
   id="profileImage" 
-  src="https://drive.google.com/uc?export=view&id=1aq59k4VUQhu8FQ5yXJeTqGKvec5_Rczw" 
+  src="https://drive.google.com/file/d/1aq59k4VUQhu8FQ5yXJeTqGKvec5_Rczw/view?usp=sharing" 
   alt="Sendi Muchdianto"
   style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;"
 >
