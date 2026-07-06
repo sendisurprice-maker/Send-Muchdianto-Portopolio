@@ -788,39 +788,54 @@ Personal portfolio website showcasing my experience, projects, and professional 
                 </div>
             </div>
 
-            <div class="hero-photo">
+           <div class="hero-photo">
   <div class="photo-container">
     <div class="photo-frame">
       <div class="photo-inner">
-        <!-- Ganti src dengan link langsung Google Drive -->
-       <img 
-  id="profileImage" 
-  src="https://drive.google.com/file/d/1aq59k4VUQhu8FQ5yXJeTqGKvec5_Rczw/view?usp=sharing" 
-  alt="Sendi Muchdianto"
-  style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;"
->
-<script>
-// Sembunyikan ikon kosong jika foto berhasil dimuat
-document.getElementById('profileImage').onload = function() {
-  document.getElementById('placeholder').style.display = 'none';
-};
-// Tampilkan ikon kosong jika tautan bermasalah
-document.getElementById('profileImage').onerror = function() {
-  this.style.display = 'none';
-  document.getElementById('placeholder').style.display = 'flex';
-};
-</script>        >
-        <div class="upload-placeholder" id="placeholder">
+        <!-- Tempat tampil foto -->
+        <img 
+          id="profileImage" 
+          alt="Sendi Muchdianto" 
+          style="width: 100%; height: 100%; object-fit: cover; display: none; border-radius: inherit;"
+        >
+
+        <!-- Tampilan saat belum ada foto -->
+        <div class="upload-placeholder" id="placeholder" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
           <div class="icon">👤</div>
           <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
             📷 Upload Foto
           </button>
-          <input type="file" id="fileInput" accept="image/*" style="display: none;">
         </div>
+
+        <!-- Input file yang tersembunyi -->
+        <input type="file" id="fileInput" accept="image/*" style="display: none;">
       </div>
     </div>
   </div>
 </div>
+
+<!-- Kode agar foto bisa muncul setelah dipilih -->
+<script>
+const fileInput = document.getElementById('fileInput');
+const profileImage = document.getElementById('profileImage');
+const placeholder = document.getElementById('placeholder');
+
+// Jalankan saat pengguna memilih foto
+fileInput.addEventListener('change', function(e) {
+  const fileTerpilih = e.target.files[0];
+  if (fileTerpilih) {
+    // Buat tautan sementara dari foto yang dipilih
+    const pembaca = new FileReader();
+    pembaca.onload = function(hasil) {
+      // Tampilkan foto dan sembunyikan tampilan kosong
+      profileImage.src = hasil.target.result;
+      profileImage.style.display = 'block';
+      placeholder.style.display = 'none';
+    };
+    pembaca.readAsDataURL(fileTerpilih);
+  }
+});
+</script>
     </section>
 
     <section class="section" id="keahlian">
